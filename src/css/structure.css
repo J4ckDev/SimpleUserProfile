@@ -1,0 +1,109 @@
+:root {
+  /*Layout*/
+  --min-width: 280px;
+  --max-width: 400px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  min-width: var(--min-width);
+  max-width: var(--max-width);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+#view{
+    margin: 10px;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+header {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  padding: 0;
+}
+
+header h1 {
+  margin: 0;
+}
+
+header p {
+  font-size: 1.1em;
+}
+
+.form {
+  padding: 0px 10px;  
+}
+
+form{
+    text-align: center;
+}
+
+form div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    text-align: left;
+    width: 100%;
+    padding: 0;
+}
+
+label{
+    margin: 2px;
+    width: 20%;
+}
+
+input{
+    margin: 2px;
+    padding: 2px;
+    width: 70%;
+}
+
+.error{
+    font-size: 12px;
+    font-weight: bold;
+    width: 100%;
+}
+
+#Send {
+    margin-top: 10px;
+  padding: 0.5em 0.5em 0.5em 0.8em;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+@media only screen and (max-width: 340px){
+    h1{
+        font-size: 1.5em;
+    }
+    header p{
+        font-size: 0.9em;
+    }
+    label{
+        font-size: 0.7em;
+    }
+    #Send{
+        font-size: 0.7em;
+    }
+    .error{
+        font-size: 0.6em;
+    }
+}
