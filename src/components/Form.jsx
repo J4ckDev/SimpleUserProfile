@@ -15,7 +15,9 @@ export function Form(props) {
 
   return (
     <Fragment>
-    <h1>Regístrate</h1>
+
+    <h1 >Simple User Profile</h1>
+    <p >Para empezar llena el siguiente formulario</p>
     <form onSubmit={handleSubmit(onSubmit)}>
       <label htmlFor="names">Nombres</label>
       <input

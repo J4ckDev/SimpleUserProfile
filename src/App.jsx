@@ -4,8 +4,7 @@ import { Profile } from "./components/Profile";
 export function App() {
   const [newUser, setNewUser] = useState(null);
   const [isFormVisible, setFormVisible] = useState(true);
-  const [otherUsers, setOtherUsers] = useState(null);
-
+  
   async function addUser(user) {
     console.log(JSON.stringify(user));
     const options = {
@@ -15,25 +14,24 @@ export function App() {
       },
       body: JSON.stringify(user),
     };
-    await fetch("https://60aec5625b8c300017deb3a5.mockapi.io/api/users", options)
+    await fetch(
+      "https://60aec5625b8c300017deb3a5.mockapi.io/api/users",
+      options
+    )
       .then((response) => response.json())
       .then((json) => {
-        setNewUser(json)
+        setNewUser(json);
       });
-      setFormVisible(false)
-  };
-
-  async function getUsers() {
-    await fetch( 'https://60aec5625b8c300017deb3a5.mockapi.io/api/users' )
-    .then( response => response.json() )
-    .then( json => console.log(json));
-  }
+    setFormVisible(false);
+  }  
 
   return (
     <Fragment>
-      {
-        isFormVisible === true ? <Form addUser={addUser} /> : <Profile newUser={newUser} />
-      }            
+      {isFormVisible === true ? (
+        <Form addUser={addUser} />
+      ) : (
+        <Profile newUser={newUser} />
+      )}
     </Fragment>
   );
 }
