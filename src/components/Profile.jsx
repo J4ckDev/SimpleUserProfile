@@ -6,27 +6,45 @@ export function Profile(props) {
   const [isOtherUsersFill, setOtherUsersFill] = useState(false);
 
   async function getUsers() {
-    await fetch(
-      "https://60aec5625b8c300017deb3a5.mockapi.io/api/users?p=1&l=10"
-    )
+    await fetch("https://60aec5625b8c300017deb3a5.mockapi.io/api/users?p=1&l=9")
       .then((response) => response.json())
       .then((json) => setOtherUsers(json));
-      setOtherUsersFill(true);
+    setOtherUsersFill(true);
   }
 
   return (
     <Fragment>
-      <h2>Bienvenido {props.newUser.names.split(" ")[0]}</h2>
-      <p>Esta es tu información personal</p>
-      <p>{props.newUser.names}</p>
-      <p>{props.newUser.surnames}</p>
-      <p>{props.newUser.email}</p>
-      <p>{props.newUser.telephone}</p>
-      <p>{props.newUser.city}</p>
-      <p>{props.newUser.country}</p>
-      <button onClick={getUsers}>Ver otros usuarios</button>
-      <hr />
-      <Cards otherUsers={otherUsers} isOtherUsersFill={isOtherUsersFill}/>
+      <div className="profile">
+        <div className="details">
+          <h2>Bienvenid@ {props.newUser.names.split(" ")[0]}</h2>
+          <p>Esta es tu información personal</p>
+          <p>
+            <i className="icon-user-outline"></i>
+            {props.newUser.names} {props.newUser.surnames}
+          </p>
+          <p>
+            <i className="icon-mail"></i>
+            {props.newUser.email}
+          </p>
+          <p>
+            <i className="icon-phone-outline"></i>
+            {props.newUser.telephone}
+          </p>
+          <p>
+            <i className="icon-location-outline"></i>
+            {props.newUser.city}, {props.newUser.country}
+          </p>
+          <button id="Send" onClick={getUsers}>
+            Ver otros usuarios<i className="icon-users-outline"></i>
+          </button>
+        </div>
+        <div className="cards">
+          {isOtherUsersFill ? (
+            <h3 className="titleCards">Usuarios registrados</h3>
+          ) : null}
+          <Cards otherUsers={otherUsers} isOtherUsersFill={isOtherUsersFill} />
+        </div>
+      </div>
     </Fragment>
   );
 }

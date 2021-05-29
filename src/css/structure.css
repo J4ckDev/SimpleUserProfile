@@ -1,7 +1,9 @@
 :root {
-  /*Layout*/
   --min-width: 280px;
   --max-width: 400px;
+  --max-width-body: 1440px;
+  --min-width-card:200px;
+  transition: all 0.4s linear;
 }
 
 body {
@@ -16,18 +18,18 @@ body {
   right: 0;
   bottom: 0;
   margin: auto;
-  min-width: var(--min-width);
-  max-width: var(--max-width);
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  min-width: var(--min-width);
 }
 
-#view{
-    margin: 10px;
-    border-radius: 10px;
-    padding: 15px;
+#view {
+  margin: 10px;
+  border-radius: 10px;
+  padding: 15px;
+  max-width: var(--max-width);
 }
 
 header {
@@ -39,7 +41,10 @@ header {
   padding: 0;
 }
 
-header h1 {
+h1,
+h2,
+.profile p,
+.card p {
   margin: 0;
 }
 
@@ -48,62 +53,123 @@ header p {
 }
 
 .form {
-  padding: 0px 10px;  
+  padding: 0px 10px;
 }
 
-form{
-    text-align: center;
+form {
+  text-align: center;
 }
 
 form div {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: baseline;
-    text-align: left;
-    width: 100%;
-    padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  text-align: left;
+  width: 100%;
+  padding: 0;
 }
 
-label{
-    margin: 2px;
-    width: 20%;
+label {
+  margin: 2px;
+  width: 20%;
 }
 
-input{
-    margin: 2px;
-    padding: 2px;
-    width: 70%;
+input {
+  margin: 2px;
+  padding: 2px;
+  width: 70%;
 }
 
-.error{
-    font-size: 12px;
-    font-weight: bold;
-    width: 100%;
+.error {
+  font-size: 12px;
+  font-weight: bold;
+  width: 100%;
 }
 
 #Send {
-    margin-top: 10px;
-  padding: 0.5em 0.5em 0.5em 0.8em;
+  margin-top: 10px;
+  padding: 0.5em 0.5em 0.5em 0.6em;
   border: none;
   cursor: pointer;
   border-radius: 5px;
 }
 
-@media only screen and (max-width: 340px){
-    h1{
-        font-size: 1.5em;
+.profile {
+  margin: 10px;
+  border-radius: 10px;
+  padding: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.details {
+  width: 100%;
+}
+
+.cards {
+  width: 100%;
+  padding: 20px 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:center;
+  align-items: center;
+}
+
+.titleCards {
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.card {
+  width: 20%;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: left;
+  min-width: var(--min-width-card);
+}
+
+@media only screen and (max-width: 570px){
+    .card{
+        width: 100%;
     }
-    header p{
-        font-size: 0.9em;
-    }
-    label{
-        font-size: 0.7em;
-    }
-    #Send{
-        font-size: 0.7em;
-    }
-    .error{
-        font-size: 0.6em;
-    }
+}
+
+@media only screen and (max-width: 340px) {
+  h1 {
+    font-size: 1.5em;
+  }
+  h2 {
+    font-size: 1.2em;
+  }
+  h3 {
+    font-size: 1em;
+  }
+  p {
+    font-size: 0.8em;
+  }
+  label {
+    font-size: 0.7em;
+  }
+  #Send {
+    font-size: 0.7em;
+  }
+  .error {
+    font-size: 0.6em;
+  }
+  .profile {
+    width: 100%;
+  }
+  .cards{
+      padding: 10px;
+  }
+  .card {
+    width: 100%;
+  }
 }

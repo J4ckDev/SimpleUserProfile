@@ -30,8 +30,7 @@ export function Form(props) {
               placeholder="John"
               id="names"
               {...register("names", {
-                required:
-                  "Campo requerido, por favor escriba sus nombres",
+                required: "Campo requerido, por favor escriba sus nombres",
               })}
             />
             <span className="error">{errors?.names?.message}</span>
@@ -43,8 +42,7 @@ export function Form(props) {
               placeholder="Doe"
               id="surnames"
               {...register("surnames", {
-                required:
-                  "Campo requerido, por favor escriba sus apellidos",
+                required: "Campo requerido, por favor escriba sus apellidos",
               })}
             />
             <span className="error">{errors?.surnames?.message}</span>
@@ -83,7 +81,7 @@ export function Form(props) {
                 required:
                   "Campo requerido, por favor escriba la ciudad de origen",
               })}
-            />            
+            />
             <span className="error">{errors?.city?.message}</span>
           </div>
           <div>
@@ -99,7 +97,9 @@ export function Form(props) {
             />
             <span className="error">{errors?.country?.message}</span>
           </div>
-          <button id="Send" type="submit">Registrarse <i className="icon-direction-outline"></i></button>
+          <button id="Send" type="submit">
+            Registrarse <i className="icon-direction-outline"></i>
+          </button>
         </form>
       </div>
     </div>
